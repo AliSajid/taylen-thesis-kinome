@@ -40,21 +40,21 @@ process_creedenzymatic <-
   }
 
 krsa_files <- c(
-  "results/warfel-krsa_table_full_1_HR_NORMOXIA_STK.csv",
-  "results/warfel-krsa_table_full_4_HR_NORMOXIA_STK.csv",
-  "results/warfel-krsa_table_full_16_HR_NORMOXIA_STK.csv"
+  "results//krsa-krsa_table_full_CMS_CTL_STK.csv",
+  "results//krsa-krsa_table_full_CPP_CTL_STK.csv",
+  "results//krsa-krsa_table_full_SPP_CTL_STK.csv"
 )
 
 uka_files <- c(
-  "kinome_data/UKA/NORM-1HR/Summaryresults 20230616-1528.txt",
-  "kinome_data/UKA/NORM-4HR/Summaryresults 20230616-1529.txt",
-  "kinome_data/UKA/NORM-16HR/Summaryresults 20230616-1530.txt"
+  "kinome_data/UKA/CMS-CTL/Summaryresults 20231024-1011.txt",
+  "kinome_data/UKA/CPP-CTL/Summaryresults 20231024-1014.txt",
+  "kinome_data/UKA/CTL-SPP/Summaryresults 20231024-1016.txt"
 )
 
 peptide_files <- c(
-  "results/warfel-dpp_1_HR_NORMOXIA-STK.csv",
-  "results/warfel-dpp_4_HR_NORMOXIA-STK.csv",
-  "results/warfel-dpp_16_HR_NORMOXIA-STK.csv"
+  "results/krsa-dpp_CMS_CTL-STK.csv",
+  "results/krsa-dpp_CPP_CTL-STK.csv",
+  "results/krsa-dpp_SPP_CTL-STK.csv"
 )
 
 result <-
@@ -64,5 +64,5 @@ result <-
     peptide_path = peptide_files
   ) |>
   pmap(process_creedenzymatic) |>
-  set_names(c("NORM-1HR", "NORM-4HR", "NORM-16HR")) |>
+  set_names(c("CMS-CTL", "CPP-CTL", "SPP-CTL")) |>
   imap_dfr(~ write_csv(.x, str_glue("results/{.y}_creedenzymatic.csv")), .id = "Comparison")
