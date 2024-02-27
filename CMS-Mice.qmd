@@ -114,7 +114,12 @@ We will perform a couple of quality control steps to deal with negative values i
 # qc processing
 qc_data <- krsa_qc_steps(raw_data) %>%
   mutate(
-    Group = SampleName,
+    Group = case_when(
+      SampleName == "CMS" ~ "SN",
+      SampleName == "CPP" ~ "CBT",
+      SampleName == "SPP" ~ "SBT",
+      SampleName == "CTL" ~ "CN"
+    ),
     SampleName = paste0(Group, "_", Barcode)
   )
 
