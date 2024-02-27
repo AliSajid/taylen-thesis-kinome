@@ -226,9 +226,9 @@ krsa_heatmap_grouped(data_modeled$grouped, clean_peptides, scale = "row")
 
 To compare between samples, a two-group comparison is performed. In this case, there are three group comparisons:
 
-- CMS vs CTL
-- CPP vs CTL
-- SPP vs CTL
+- SN vs CN
+- CBT vs CN
+- SBT vs CN
 
 The *Slope_Transformed* ratio between each group, paired by chip, is calculated to the fold change. Based on the fold change, peptides that pass a certain fold change threshold are considered significant hits. Also, quality control steps applied in each comparison to filter out peptides that do not reach specific criteria:
 

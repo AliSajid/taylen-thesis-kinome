@@ -36,9 +36,9 @@ process_creedenzymatic <- function(krsa_path, uka_path, peptide_path) {
 }
 
 krsa_files <- c(
-  "results//krsa-krsa_table_full_CMS_CTL_STK.csv",
-  "results//krsa-krsa_table_full_CPP_CTL_STK.csv",
-  "results//krsa-krsa_table_full_SPP_CTL_STK.csv"
+  "results//krsa-krsa_table_full_SN_CN_STK.csv",
+  "results//krsa-krsa_table_full_CBT_CN_STK.csv",
+  "results//krsa-krsa_table_full_SBT_CN_STK.csv"
 )
 
 uka_files <- c(
@@ -48,9 +48,9 @@ uka_files <- c(
 )
 
 peptide_files <- c(
-  "results/krsa-dpp_CMS_CTL-STK.csv",
-  "results/krsa-dpp_CPP_CTL-STK.csv",
-  "results/krsa-dpp_SPP_CTL-STK.csv"
+  "results/krsa-dpp_SN_CN-STK.csv",
+  "results/krsa-dpp_CBT_CN-STK.csv",
+  "results/krsa-dpp_SBT_CN-STK.csv"
 )
 
 result <-
