@@ -229,6 +229,7 @@ To compare between samples, a two-group comparison is performed. In this case, t
 - SN vs CN
 - CBT vs CN
 - SBT vs CN
+- SBT vs CBT
 
 The *Slope_Transformed* ratio between each group, paired by chip, is calculated to the fold change. Based on the fold change, peptides that pass a certain fold change threshold are considered significant hits. Also, quality control steps applied in each comparison to filter out peptides that do not reach specific criteria:
 
@@ -254,7 +255,8 @@ These *Filtering Parameters* (fold change threshold, QC criteria) can be modifie
 comparisons <- list(
   COMP1 = c(groups[2], groups[1]),
   COMP2 = c(groups[3], groups[1]),
-  COMP3 = c(groups[4], groups[1])
+  COMP3 = c(groups[4], groups[1]),
+  COMP4 = c(groups[4], groups[3])
 )
 ```
 
@@ -312,6 +314,27 @@ cat(res, sep = "\n")
 case <- comparisons$COMP3[1]
 ctrl <- comparisons$COMP3[2]
 random <- "C"
+threshold <- params$threshold
+
+src <- knitr::knit_expand(file = "_comparison.Rmd", case = case, ctrl = ctrl, threshold = threshold, chip = params$chip_type)
+
+res <- knitr::knit_child(text = src, quiet = TRUE)
+
+cat(res, sep = "\n")
+```
+
+```{r}
+#| results: "asis"
+#| echo: FALSE
+#| include: TRUE
+#| label: "childD"
+#| fig-width: 6
+#| fig-height: 6
+#| fig-cap: "Heatmap of pairwise group comparison"
+
+case <- comparisons$COMP4[1]
+ctrl <- comparisons$COMP4[2]
+random <- "D"
 threshold <- params$threshold
 
 src <- knitr::knit_expand(file = "_comparison.Rmd", case = case, ctrl = ctrl, threshold = threshold, chip = params$chip_type)
