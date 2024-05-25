@@ -1,4 +1,4 @@
-# Pathway Analysis STK - Su Data
+# Pathway Analysis STK - Taylen Data
 
 library(tidyverse)
 library(enrichR)
@@ -36,10 +36,8 @@ sn_genes <- sn_comparison |>
   ) |>
   pull(Gene)
 
-dbs <- c(
-  "GO_Molecular_Function_2023", "GO_Cellular_Component_2023",
-  "GO_Biological_Process_2023", "KEGG_2021_Human", "Reactome_2022",
-  "WikiPathways_2023_Human"
+dbs <- c("KEGG_2021_Human", "Reactome_2022",
+  "WikiPathway_2023_Human"
 )
 
 sn_enriched <- enrichr(sn_genes, dbs) |>
@@ -50,7 +48,7 @@ sn_enriched <- enrichr(sn_genes, dbs) |>
 # Change the name of the file you are writing
 write_xlsx(
   sn_enriched,
-  file.path("results", "SN-STK-Pathways.xlsx")
+  file.path("results", "SN_CN-STK-Pathways.xlsx")
 )
 #################
 
@@ -77,10 +75,8 @@ cbt_genes <- cbt_comparison |>
   ) |>
   pull(Gene)
 
-dbs <- c(
-  "GO_Molecular_Function_2023", "GO_Cellular_Component_2023",
-  "GO_Biological_Process_2023", "KEGG_2021_Human", "Reactome_2022",
-  "WikiPathways_2023_Human"
+dbs <- c("KEGG_2021_Human", "Reactome_2022",
+  "WikiPathway_2023_Human"
 )
 
 cbt_enriched <- enrichr(cbt_genes, dbs) |>
@@ -91,7 +87,7 @@ cbt_enriched <- enrichr(cbt_genes, dbs) |>
 # Change the name of the file you are writing
 write_xlsx(
   cbt_enriched,
-  file.path("results", "CBT-STK-Pathways.xlsx")
+  file.path("results", "CBT_CN-STK-Pathways.xlsx")
 )
 #################
 
@@ -117,10 +113,8 @@ sbt_genes <- sbt_comparison |>
   ) |>
   pull(Gene)
 
-dbs <- c(
-  "GO_Molecular_Function_2023", "GO_Cellular_Component_2023",
-  "GO_Biological_Process_2023", "KEGG_2021_Human", "Reactome_2022",
-  "WikiPathways_2023_Human"
+dbs <- c("KEGG_2021_Human", "Reactome_2022",
+  "WikiPathway_2023_Human"
 )
 
 sbt_enriched <- enrichr(sbt_genes, dbs) |>
@@ -131,6 +125,7 @@ sbt_enriched <- enrichr(sbt_genes, dbs) |>
 # Change the name of the file you are writing
 write_xlsx(
   sbt_enriched,
-  file.path("results", "SBT-STK-Pathways.xlsx")
+  file.path("results", "SBT_CN-STK-Pathways.xlsx")
 )
 #################
+
